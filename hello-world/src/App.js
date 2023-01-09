@@ -1,28 +1,15 @@
 // components
-import UserDetails from './components/UserDetails';
+import MyForm from './components/MyForm';
 
 // styles / SCSS
 import './App.scss';
 
 function App() {
-	const users = [
-		{ id: 1, name: "Markus", age: 31, job: "Developer" },
-		{ id: 2, name: "Karine", age: 26, job: "Doctor" },
-		{ id: 3, name: "John", age: 16, job: "Student" }
-	];
-
 	return (
 		<div className="App">
-			<h1>Users</h1>
+			<h1>Forms</h1>
 
-			{ users.map(user => (
-				<UserDetails
-					key={user.id}
-					name={user.name}
-					age={user.age}
-					job={user.job}
-				/>
-			)) }
+			<MyForm user={{ name: "Josias", email: "Josias@gmail.com", bio: "I love cats!", role: "admin" }} />
 		</div>
 	);
 }
