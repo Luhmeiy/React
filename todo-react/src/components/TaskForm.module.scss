@@ -1,0 +1,41 @@
+@import "../variables.scss";
+
+.form {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 400px;
+
+	&__input-container {
+		display: flex;
+		flex-direction: column;
+		text-align: left;
+	}
+
+	&__input {
+		border: 1px solid $color-gray;
+		border-radius: 0;
+		margin-bottom: 1.5em;
+		padding: 8px 15px;
+	}
+
+	&__label {
+		font-weight: bold;
+		margin-bottom: .4em;
+	}
+
+	&__submit {
+		background-color: $color-blue;
+		border: 1px solid $color-blue;
+		color: #000;
+		cursor: pointer;
+		margin-bottom: 1.5em;
+		padding: 8px 15px;
+		transition: .5s;
+
+		&:hover {
+			background-color: #fff;
+			border-color: $color-gray;
+		}
+	}
+}

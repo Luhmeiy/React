@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+.footer {
+	align-items: center;
+	background-color: $color-gray;
+	color: #fff;
+	display: flex;
+	height: 200px;
+	justify-content: center;
+
+	&__span {
+		color: $color-blue;
+		font-weight: bold;
+	}
+}
