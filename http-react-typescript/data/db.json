@@ -1,0 +1,69 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa",
+      "price": 59.9
+    },
+    {
+      "id": 2,
+      "name": "Calça vermelha",
+      "price": 90
+    },
+    {
+      "id": 3,
+      "name": "Boné aba reta",
+      "price": 29.9
+    },
+    {
+      "name": "Tênis",
+      "price": "120",
+      "id": 4
+    },
+    {
+      "name": "Cadeira",
+      "price": "200",
+      "id": 5
+    },
+    {
+      "name": "Celular",
+      "price": "800",
+      "id": 6
+    },
+    {
+      "name": "Mouse",
+      "price": "60",
+      "id": 7
+    },
+    {
+      "name": "Lápis",
+      "price": "1.5",
+      "id": 8
+    },
+    {
+      "name": "Caneta",
+      "price": "1.5",
+      "id": 9
+    },
+    {
+      "name": "Mesa",
+      "price": "600",
+      "id": 10
+    },
+    {
+      "name": "Tapete",
+      "price": "800",
+      "id": 11
+    },
+    {
+      "name": "Computador",
+      "price": "5.000",
+      "id": 12
+    },
+    {
+      "name": "Estojo",
+      "price": "10",
+      "id": 13
+    }
+  ]
+}
