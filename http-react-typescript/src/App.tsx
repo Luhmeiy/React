@@ -20,6 +20,10 @@ function App() {
 	const [name, setName] = useState<string>("");
 	const [price, setPrice] = useState<string>("");
 
+	const handleDelete = async (id: number) => {
+		httpConfig({ id }, "DELETE");
+	}
+
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -43,7 +47,10 @@ function App() {
 			{ !error && (
 				<ul className={styles['product-list']}>
 					{items && items.map(product => (
-						<li key={product.id}>{product.name} - R$ {product.price}</li>
+						<li className={styles['product-list__item']} key={product.id}>
+							{product.name} - R$ {product.price}
+							<button onClick={() => handleDelete(product.id)}>DELETE</button>
+						</li>
 					))}
 				</ul>
 			) }

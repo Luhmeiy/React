@@ -8,7 +8,7 @@ interface Items {
 }
 
 export const useFetch = (url: string) => {
-    const [data, setData] = useState<Items[]>();
+    const [data, setData] = useState<Items[]>([]);
 
     // POST
     const [config, setConfig] = useState<Object | null>(null);
@@ -21,17 +21,33 @@ export const useFetch = (url: string) => {
     // ERRORS
     const [error, setError] = useState<string | null>(null);
 
-    const httpConfig = (data: Object, method: string) => {
+    // ITEM ID
+    const [itemId, setItemId] = useState<number | null>(null);
+
+    const httpConfig = (item: Object, method: string) => {
         if (method === "POST") {
             setConfig({
                 method,
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(item)
             });
 
             setMethod(method);
+        }
+        else if (method === "DELETE") {
+            let value = Object.values(item)[0];
+
+            setConfig({
+                method,
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            setMethod(method);
+            setItemId(value);
         }
     }
 
@@ -62,18 +78,26 @@ export const useFetch = (url: string) => {
 
     useEffect(() => {
         const httpRequest = async () => {
+            let json: Items;
+
             if (method === "POST") {
                 let fetchOptions: [string, Object] = [url, config!];
     
                 const res: Response = await fetch(...fetchOptions);
-                const json: Items = await res.json();
-    
-                setCallFetch(json);
+                json = await res.json();
             }
+            else if (method === "DELETE") {
+                const deleteUrl = `${url}/${itemId}`;
+
+                const res: Response = await fetch(deleteUrl, config!)
+                json = await res.json();
+            }
+
+            setCallFetch(json!);
         }
 
         httpRequest();
-    }, [config, method, url]);
+    }, [config, method, url, itemId]);
 
     return { data, httpConfig, loading, error };
 }
