@@ -5,6 +5,7 @@ Collection of small React projects developed during courses or using tutorials.
 Developed during [React do Zero a Maestria](https://www.udemy.com/course/react-do-zero-a-maestria-c-hooks-router-api-projetos/) by [Matheus Battisti](https://www.udemy.com/user/matheus-battisti/):
 - hello-world
 - http-react-typescript
+- react-router-typescript
 - react-typescript
 - secret-word-typescript
 - secret-word
