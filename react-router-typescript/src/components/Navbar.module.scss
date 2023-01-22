@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+
+    & a {
+        color: #ccc;
+        margin: 0 10px;
+        padding: 5px;
+        text-decoration: none;
+
+        &:hover {
+            color: rgb(55, 174, 221);
+        }
+
+        &.active {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+}
