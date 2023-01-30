@@ -5,6 +5,7 @@ Collection of small React projects developed during courses or using tutorials.
 Developed during [React do Zero a Maestria](https://www.udemy.com/course/react-do-zero-a-maestria-c-hooks-router-api-projetos/) course by [Matheus Battisti](https://www.udemy.com/user/matheus-battisti/):
 - hello-world
 - http-react-typescript
+- react-context-typescript
 - react-router-typescript
 - react-typescript
 - secret-word-typescript
@@ -13,3 +14,6 @@ Developed during [React do Zero a Maestria](https://www.udemy.com/course/react-d
 
 Developed during [Criando uma interface de autenticação](https://www.youtube.com/watch?v=7Gd8an7qZ4w) tutorial by [Rocketseat](https://www.youtube.com/@rocketseat) (but with Tailwind instead of pure sass):
 - google-auth
+
+Developed during [Notificações push na Web e Mobile](https://www.youtube.com/watch?v=nNvxERiVb_s) tutorial by [Rocketseat](https://www.youtube.com/@rocketseat):
+- react-react-native-notifications
