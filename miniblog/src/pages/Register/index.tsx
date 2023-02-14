@@ -1,6 +1,8 @@
+// hooks
+import { useAuthentication } from "../../hooks/useAuthentication";
+
 // React
 import { FormEvent, useEffect, useState } from "react";
-import { useAuthentication } from "../../hooks/useAuthentication";
 
 // styles
 import styles from "./Register.module.scss";

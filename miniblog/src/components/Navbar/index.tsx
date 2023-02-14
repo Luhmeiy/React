@@ -1,3 +1,7 @@
+// context / hooks
+import { useAuthValue } from "../../context/AuthContext";
+import { useAuthentication } from "../../hooks/useAuthentication";
+
 // libraries
 import { NavLink } from "react-router-dom";
 
@@ -5,8 +9,11 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
+	const user = useAuthValue()?.user ?? null;
+	const { logout } = useAuthentication();
+
 	return (
-		<div className={styles.navbar}>
+		<nav className={styles.navbar}>
 			<NavLink to="/" className={styles.brand}>
 				Mini <span>Blog</span>
 			</NavLink>
@@ -23,27 +30,57 @@ const Navbar = () => {
 					</NavLink>
 				</li>
 
-				<li>
-					<NavLink
-						to="/login"
-						className={({ isActive }) =>
-							isActive ? styles.active : ""
-						}
-					>
-						Entrar
-					</NavLink>
-				</li>
+				{!user && (
+					<>
+						<li>
+							<NavLink
+								to="/login"
+								className={({ isActive }) =>
+									isActive ? styles.active : ""
+								}
+							>
+								Entrar
+							</NavLink>
+						</li>
 
-				<li>
-					<NavLink
-						to="/register"
-						className={({ isActive }) =>
-							isActive ? styles.active : ""
-						}
-					>
-						Cadastrar
-					</NavLink>
-				</li>
+						<li>
+							<NavLink
+								to="/register"
+								className={({ isActive }) =>
+									isActive ? styles.active : ""
+								}
+							>
+								Cadastrar
+							</NavLink>
+						</li>
+					</>
+				)}
+
+				{user && (
+					<>
+						<li>
+							<NavLink
+								to="/posts/create"
+								className={({ isActive }) =>
+									isActive ? styles.active : ""
+								}
+							>
+								Novo post
+							</NavLink>
+						</li>
+
+						<li>
+							<NavLink
+								to="/dashboard"
+								className={({ isActive }) =>
+									isActive ? styles.active : ""
+								}
+							>
+								Dashboard
+							</NavLink>
+						</li>
+					</>
+				)}
 
 				<li>
 					<NavLink
@@ -55,8 +92,14 @@ const Navbar = () => {
 						Sobre
 					</NavLink>
 				</li>
+
+				{user && (
+					<li>
+						<button onClick={logout}>Sair</button>
+					</li>
+				)}
 			</ul>
-		</div>
+		</nav>
 	);
 };
 

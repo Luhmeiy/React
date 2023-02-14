@@ -1,0 +1,17 @@
+.about {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	& p {
+		color: #aaa;
+		margin-bottom: 2em;
+	}
+
+	& a {
+		display: block;
+		margin-top: 15px;
+		padding: 10px 15px;
+	}
+}

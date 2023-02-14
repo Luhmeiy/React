@@ -9,10 +9,17 @@ body {
 	padding: 0;
 }
 
-a {
-	color: #646cff;
+a,
+nav button {
+	background-color: transparent;
+	border: none;
+	color: #000;
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1em;
 	font-weight: 500;
-	text-decoration: inherit;
+	text-decoration: none;
+	transition: 0.4s;
 
 	&:hover {
 		color: #bbb;
