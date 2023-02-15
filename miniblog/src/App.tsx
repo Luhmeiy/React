@@ -1,6 +1,14 @@
 // components / pages
 import { Footer, Navbar } from "./components";
-import { About, CreatePost, Dashboard, Home, Login, Register } from "./pages";
+import {
+	About,
+	CreatePost,
+	Dashboard,
+	Home,
+	Login,
+	Register,
+	Search,
+} from "./pages";
 
 // context / hooks
 import { AuthProvider } from "./context/AuthContext";
@@ -41,6 +49,7 @@ function App() {
 						<Routes>
 							<Route path="" element={<Home />} />
 							<Route path="/about" element={<About />} />
+							<Route path="/search" element={<Search />} />
 							<Route
 								path="/login"
 								element={

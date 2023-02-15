@@ -47,23 +47,23 @@ form {
 			margin-bottom: 0.3em;
 			text-align: left;
 		}
+	}
 
-		& input,
-		& textarea {
-			background-color: transparent;
-			border: none;
-			border-bottom: 1px solid #ccc;
-			box-sizing: border-box;
-			font-family: "Montserrat", sans-serif;
-			padding: 0.8em 0;
+	& input,
+	& textarea {
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid #ccc;
+		box-sizing: border-box;
+		font-family: "Montserrat", sans-serif;
+		padding: 0.8em 0;
 
-			&::placeholder {
-				color: #aaa;
-			}
+		&::placeholder {
+			color: #aaa;
+		}
 
-			&:focus {
-				outline: none;
-			}
+		&:focus {
+			outline: none;
 		}
 	}
 }
