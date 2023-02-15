@@ -22,18 +22,40 @@ const CreatePost = () => {
 
 	const { insertDocument, response } = useInsertDocument("posts");
 
+	const navigate = useNavigate();
+
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setFormError("");
+
+		try {
+			new URL(image);
+		} catch (error) {
+			if (error instanceof Error) {
+				setFormError("A imagem precisa ser uma URL.");
+			}
+		}
+
+		const tagsArray = tags
+			.split(",")
+			.map((tag) => tag.trim().toLowerCase());
+
+		if (!title || !image || !tags || !body) {
+			setFormError("Por favor, preencha todos os campos!");
+		}
+
+		if (formError) return;
 
 		insertDocument({
 			title,
 			image,
 			body,
-			tags,
+			tagsArray,
 			uid: user.uid,
 			createdBy: user.displayName,
 		});
+
+		navigate("/");
 	};
 
 	return (
@@ -97,7 +119,10 @@ const CreatePost = () => {
 						Aguarde...
 					</button>
 				)}
-				{response.error && <p className="error">{response.error}</p>}
+				{response.error && (
+					<p className="error">{response.error as string}</p>
+				)}
+				{formError && <p className="error">{formError}</p>}
 			</form>
 		</div>
 	);

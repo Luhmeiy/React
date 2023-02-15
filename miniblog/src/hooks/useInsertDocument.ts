@@ -5,7 +5,12 @@ import { db } from "../services/firebase";
 // React
 import { useEffect, useReducer, useState } from "react";
 
-const initialState = {
+interface StateProps {
+    loading: boolean | null;
+    error: string | DocumentReference<DocumentData> | null;
+}
+
+const initialState: StateProps = {
     loading: null,
     error: null
 }
@@ -15,14 +20,14 @@ interface ActionProps {
     payload?: string | DocumentReference<DocumentData>;
 }
 
-const insertReducer = (state: any, action: ActionProps) => {
+const insertReducer = (state: StateProps, action: ActionProps): StateProps => {
     switch(action.type) {
         case "LOADING":
             return {loading: true, error: null}
         case "INSERTED_DOC":
             return {loading: false, error: null}
         case "ERROR":
-            return {loading: false, error: action.payload}
+            return {loading: false, error: action.payload!}
         default:
             return state;
     }
