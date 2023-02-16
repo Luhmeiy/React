@@ -6,6 +6,7 @@ import {
 	Dashboard,
 	Home,
 	Login,
+	Post,
 	Register,
 	Search,
 } from "./pages";
@@ -50,6 +51,7 @@ function App() {
 							<Route path="" element={<Home />} />
 							<Route path="/about" element={<About />} />
 							<Route path="/search" element={<Search />} />
+							<Route path="/posts/:id" element={<Post />} />
 							<Route
 								path="/login"
 								element={
