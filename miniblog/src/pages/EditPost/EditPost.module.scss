@@ -1,0 +1,28 @@
+.edit_post {
+	text-align: center;
+
+	& h2 {
+		font-size: 2.2em;
+	}
+
+	& p {
+		color: #aaa;
+		margin-bottom: 2em;
+	}
+
+	& textarea {
+		height: 10rem;
+		resize: none;
+	}
+
+	& .preview_title {
+		color: #000;
+		font-weight: bold;
+		margin-bottom: 0.2em;
+	}
+
+	& .image_preview {
+		margin-bottom: 1em;
+		max-width: 100%;
+	}
+}

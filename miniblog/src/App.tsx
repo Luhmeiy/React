@@ -4,6 +4,7 @@ import {
 	About,
 	CreatePost,
 	Dashboard,
+	EditPost,
 	Home,
 	Login,
 	Post,
@@ -62,6 +63,16 @@ function App() {
 								path="/register"
 								element={
 									!user ? <Register /> : <Navigate to="/" />
+								}
+							/>
+							<Route
+								path="/posts/edit/:id"
+								element={
+									user ? (
+										<EditPost />
+									) : (
+										<Navigate to="/login" />
+									)
 								}
 							/>
 							<Route

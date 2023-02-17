@@ -5,6 +5,12 @@
 		margin-bottom: 0.2em;
 	}
 
+	& img {
+		margin-inline: 3em;
+		max-width: 950px;
+		width: calc(100% - 6em);
+	}
+
 	& .tags {
 		display: flex;
 		justify-content: center;
