@@ -14,7 +14,7 @@ interface DocumentsProps {
 	body: string;
 }
 
-export const useFetchDocuments = (docCollection: string, search: string | null = null, uid = null) => {
+export const useFetchDocuments = (docCollection: string, search: string | null = null, uid: string | null = null) => {
     const [documents, setDocuments] = useState<DocumentsProps[] | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -34,7 +34,11 @@ export const useFetchDocuments = (docCollection: string, search: string | null =
 
                 if (search) {
                     q = await query(collectionRef, where("tagsArray", "array-contains", search), orderBy("createdAt", "desc"));
-                } else {
+                }
+                else if (uid) {
+                    q = await query(collectionRef, where("uid", "==", uid), orderBy("createdAt", "desc"));
+                }
+                else {
                     q = await query(collectionRef, orderBy("createdAt", "desc"));
                 }
 
@@ -64,7 +68,7 @@ export const useFetchDocuments = (docCollection: string, search: string | null =
         }
 
         loadData();
-    }, [docCollection, documents, search, uid, cancelled]);
+    }, [docCollection, search, uid, cancelled]);
 
     useEffect(() => {
         return () => setCancelled(true);

@@ -1,0 +1,59 @@
+.dashboard {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+
+	& h2 {
+		font-size: 2.2em;
+		margin-bottom: 0.5em;
+	}
+
+	& p {
+		color: #aaa;
+		margin-bottom: 1em;
+	}
+}
+
+.no_posts {
+	text-align: center;
+
+	& p {
+		margin-bottom: 1.5em;
+	}
+
+	& a {
+		padding: 10px 25px;
+	}
+}
+
+.post_header {
+	border-bottom: 2px solid #ccc;
+	display: flex;
+	font-weight: bold;
+	justify-content: space-between;
+	padding: 10px;
+	width: 80%;
+}
+
+.post_row {
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	width: 80%;
+
+	& p {
+		color: #000;
+	}
+
+	& button,
+	& a {
+		font-size: 0.7em;
+		height: 30px;
+		margin: 0 5px;
+		width: 100px;
+	}
+}
