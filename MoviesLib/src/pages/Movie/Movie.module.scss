@@ -1,11 +1,14 @@
+@import "../../styles/variables";
+
 .movie-page {
 	display: flex;
 	flex-direction: column;
 	margin: 2rem auto;
 	max-width: 600px;
+	padding-inline: 2rem;
 
 	& svg {
-		color: #f7d354;
+		color: $primary;
 		font-size: 1.5rem;
 	}
 
@@ -14,6 +17,10 @@
 		align-self: center;
 		text-align: center;
 		width: 60%;
+
+		@media screen and (max-width: 550px) {
+			width: 70%;
+		}
 
 		& h2 {
 			font-size: 2rem;

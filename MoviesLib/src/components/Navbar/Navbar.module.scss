@@ -1,3 +1,6 @@
+@use "../../styles/mixins";
+@import "../../styles/variables";
+
 .navbar {
 	align-items: center;
 	background-color: #121212;
@@ -5,10 +8,21 @@
 	justify-content: space-between;
 	padding: 1rem 2rem;
 
+	@media screen and (max-width: 550px) {
+		flex-direction: column;
+		row-gap: 0.5rem;
+	}
+
 	& h2 a {
 		align-items: center;
 		display: flex;
 		gap: 0.5rem;
+
+		@media screen and (max-width: 550px) {
+			font-size: 2rem;
+		}
+
+		@include mixins.focus-outline;
 	}
 
 	& form {
@@ -19,12 +33,14 @@
 			border: none;
 			border-radius: 4px;
 			padding: 0.2rem 0.8rem;
+
+			@include mixins.focus-outline;
 		}
 
 		& button {
 			align-items: center;
-			background-color: #f7d354;
-			border: 2px solid #f7d354;
+			background-color: $primary;
+			border: 2px solid $primary;
 			border-radius: 4px;
 			color: #000;
 			cursor: pointer;
@@ -35,8 +51,10 @@
 
 			&:hover {
 				background-color: transparent;
-				color: #f7d354;
+				color: $primary;
 			}
+
+			@include mixins.focus-outline;
 		}
 	}
 }

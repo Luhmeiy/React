@@ -1,0 +1,8 @@
+@import "./variables";
+
+@mixin focus-outline {
+	&:focus {
+		outline: 1px solid $primary;
+		outline-offset: 2px;
+	}
+}
