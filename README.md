@@ -9,6 +9,7 @@ Developed during [React do Zero a Maestria](https://www.udemy.com/course/react-d
 -   hello-world
 -   http-react-typescript
 -   miniblog
+-   MoviesLib
 -   react-context-typescript
 -   react-hooks
 -   react-router-typescript
