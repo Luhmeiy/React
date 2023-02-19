@@ -1,0 +1,42 @@
+.navbar {
+	align-items: center;
+	background-color: #121212;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+
+	& h2 a {
+		align-items: center;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	& form {
+		display: flex;
+		gap: 0.5rem;
+
+		& input {
+			border: none;
+			border-radius: 4px;
+			padding: 0.2rem 0.8rem;
+		}
+
+		& button {
+			align-items: center;
+			background-color: #f7d354;
+			border: 2px solid #f7d354;
+			border-radius: 4px;
+			color: #000;
+			cursor: pointer;
+			display: flex;
+			font-size: 1.3rem;
+			padding: 0.3rem;
+			transition: 0.4s;
+
+			&:hover {
+				background-color: transparent;
+				color: #f7d354;
+			}
+		}
+	}
+}

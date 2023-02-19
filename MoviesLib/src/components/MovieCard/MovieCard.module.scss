@@ -1,0 +1,47 @@
+.movie-card {
+	background-color: #111;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 2.5rem;
+	padding: 1rem;
+	width: 30%;
+
+	& img {
+		max-width: 100%;
+	}
+
+	& img,
+	& h2,
+	& p {
+		margin-bottom: 1rem;
+	}
+
+	& p {
+		align-items: center;
+		display: flex;
+		gap: 0.4rem;
+	}
+
+	& svg {
+		color: #f7d354;
+	}
+
+	& a {
+		align-items: center;
+		background-color: #f7d354;
+		border: 2px solid #f7d354;
+		border-radius: 4px;
+		color: #000;
+		font-weight: bold;
+		padding: 1rem 0.5rem;
+		text-align: center;
+		transition: 0.4s;
+
+		&:hover {
+			background-color: transparent;
+			color: #f7d354;
+		}
+	}
+}

@@ -1,0 +1,48 @@
+.movie-page {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem auto;
+	max-width: 600px;
+
+	& svg {
+		color: #f7d354;
+		font-size: 1.5rem;
+	}
+
+	& div:first-of-type {
+		align-items: center;
+		align-self: center;
+		text-align: center;
+		width: 60%;
+
+		& h2 {
+			font-size: 2rem;
+		}
+	}
+
+	& .info {
+		margin-bottom: 1.5rem;
+
+		& h3 {
+			align-items: center;
+			display: flex;
+			gap: 0.5rem;
+			margin-bottom: 1rem;
+		}
+
+		&.description {
+			padding-bottom: 5rem;
+
+			& p {
+				line-height: 1.4rem;
+			}
+		}
+	}
+
+	& .tagline {
+		font-size: 1.3rem;
+		font-weight: bold;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+}
