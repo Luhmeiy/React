@@ -4,10 +4,20 @@ import * as dotenv from "dotenv";
 import { routes } from "./routers/Router";
 import { conn } from "./config/db";
 import path from "path";
+import ajvErrors from "ajv-errors";
 
 dotenv.config();
 
-const app = Fastify();
+const app = Fastify({
+	ajv: {
+		customOptions: {
+			coerceTypes: false,
+			allErrors: true,
+		},
+		plugins: [ajvErrors],
+	},
+});
+
 app.register(cors);
 app.register(routes);
 app.register(conn);
