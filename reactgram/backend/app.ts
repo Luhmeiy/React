@@ -1,38 +1,30 @@
-import Fastify from "fastify";
-import cors from "@fastify/cors";
+import cors from "cors";
 import * as dotenv from "dotenv";
-import { routes } from "./routers/Router";
-import { conn } from "./config/db";
+import express from "express";
 import path from "path";
-import ajvErrors from "ajv-errors";
 
 dotenv.config();
 
-const app = Fastify({
-	ajv: {
-		customOptions: {
-			coerceTypes: false,
-			allErrors: true,
-		},
-		plugins: [ajvErrors],
-	},
+const port = process.env.PORT;
+const app = express();
+
+// Config JSON and form data response
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Solve CORS
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
+// Upload directory
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// DB connection
+import "./config/db";
+
+/// routes
+import { router } from "./routes/Router";
+app.use(router);
+
+app.listen(port, () => {
+	console.log(`App rodando na porta ${port}`);
 });
-
-app.register(cors);
-app.register(routes);
-app.register(conn);
-app.register(require("@fastify/static"), {
-	root: path.join(__dirname, "/uploads"),
-	prefix: "/uploads",
-});
-
-const serverPort = process.env.PORT;
-
-app.listen({
-	host: "0.0.0.0",
-	port: +serverPort!,
-})
-	.then(() => {
-		console.log(`App rodando na porta ${serverPort}`);
-	})
-	.catch((err) => console.log(err));
