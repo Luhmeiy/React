@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 
+import { RequestData } from "../interfaces/RequestData";
+
 const jwtSecret = process.env.JWT_SECRET;
 
 // Generate user token
@@ -72,4 +74,78 @@ export const login = async (req: Request, res: Response) => {
 		profileImage: user!.profileImage,
 		token: generateToken(user!._id),
 	});
+};
+
+// Get current logged in user
+export const getCurrentUser = async (req: RequestData, res: Response) => {
+	const user = req.user;
+
+	res.status(200).json(user);
+};
+
+// Update an user
+export const update = async (req: RequestData, res: Response) => {
+	const { name, password, bio } = req.body;
+
+	let profileImage: string | null = null;
+
+	if (req.file) {
+		profileImage = req.file.filename;
+	}
+
+	const reqUser = req.user;
+
+	const user = await User.findById(
+		new mongoose.Types.ObjectId(reqUser._id)
+	).select("-password");
+
+	if (user) {
+		if (name) {
+			user.name = name;
+		}
+
+		if (password) {
+			// Generate password hash
+			const salt = await bcrypt.genSalt();
+			const passwordHash = await bcrypt.hash(password, salt);
+
+			user.password = passwordHash;
+		}
+
+		if (profileImage) {
+			user.profileImage = profileImage;
+		}
+
+		if (bio) {
+			user.bio = bio;
+		}
+
+		await user.save();
+
+		res.status(200).json(user);
+	}
+};
+
+// Get user by id
+export const getUserById = async (req: Request, res: Response) => {
+	const { id } = req.params;
+
+	try {
+		const user = await User.findById(
+			new mongoose.Types.ObjectId(id)
+		).select("-password");
+
+		// Check if user exists
+		if (!user) {
+			res.status(404).json({ errors: ["Usuário não encontrado"] });
+
+			return;
+		}
+
+		res.status(200).json(user);
+	} catch (error) {
+		res.status(404).json({ errors: ["Usuário não encontrado"] });
+
+		return;
+	}
 };
