@@ -1,5 +1,4 @@
 import express from "express";
-
 const router = express.Router();
 
 // Controller
@@ -35,4 +34,4 @@ router.put(
 );
 router.get("/:id", getUserById);
 
-module.exports = router;
+export { router };

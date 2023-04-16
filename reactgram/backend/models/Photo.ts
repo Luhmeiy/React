@@ -1,6 +1,15 @@
 import mongoose, { Schema } from "mongoose";
 
-const photoSchema = new Schema(
+interface IPhoto extends mongoose.Document {
+	image: String;
+	title: String;
+	likes: any[];
+	comments: Object[];
+	userId: mongoose.Types.ObjectId;
+	userName: String;
+}
+
+const photoSchema = new Schema<IPhoto>(
 	{
 		image: String,
 		title: String,
@@ -14,4 +23,4 @@ const photoSchema = new Schema(
 	}
 );
 
-export const Photo = mongoose.model("Photo", photoSchema);
+export const Photo = mongoose.model<IPhoto>("Photo", photoSchema);
