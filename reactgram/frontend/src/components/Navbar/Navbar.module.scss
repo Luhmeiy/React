@@ -1,0 +1,44 @@
+.nav {
+	align-items: center;
+	background-color: #000;
+	border-bottom: 1px solid #363636;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.1em 1em;
+}
+
+.search-form {
+	position: relative;
+	width: 20%;
+
+	& svg {
+		left: 9px;
+		position: absolute;
+		top: 10px;
+	}
+
+	& input {
+		border: none;
+		border-radius: 5px;
+		margin: 0;
+		padding-left: 2.5em;
+		width: 100%;
+	}
+}
+
+.nav-links {
+	align-items: center;
+	display: flex;
+
+	& li {
+		margin-right: 1em;
+	}
+
+	& span {
+		cursor: pointer;
+	}
+
+	& svg {
+		font-size: 1.5em;
+	}
+}
