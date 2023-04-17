@@ -33,8 +33,6 @@ const Register = () => {
 			confirmPassword,
 		};
 
-		console.log(user);
-
 		dispatch(register(user));
 	};
 
@@ -85,7 +83,7 @@ const Register = () => {
 			</form>
 
 			<p>
-				Já tem conta? <Link to="/login">Clique aqui.</Link>
+				Já tem conta? <Link to="/login">Clique aqui!</Link>
 			</p>
 		</div>
 	);

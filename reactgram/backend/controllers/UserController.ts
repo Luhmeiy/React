@@ -61,11 +61,19 @@ export const login = async (req: Request, res: Response) => {
 	// Check if user exists
 	if (!user) {
 		res.status(404).json({ errors: ["Usuário não encontrado."] });
+		return;
+	}
+
+	// Check password
+	if (!password) {
+		res.status(422).json({ errors: ["Digite uma senha."] });
+		return;
 	}
 
 	// Check if password matches
 	if (!(await bcrypt.compare(password, user!.password!))) {
 		res.status(422).json({ errors: ["Senha inválida."] });
+		return;
 	}
 
 	// Return user with token
