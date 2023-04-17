@@ -1,10 +1,17 @@
 import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
+import { useAuth } from "./hooks/useAuth";
 import { Footer, Navbar } from "./components";
 import { Home, Login, Register } from "./pages";
 
 function App() {
+	const { auth, loading } = useAuth();
+
+	if (loading) {
+		return <p>Carregando...</p>;
+	}
+
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -12,9 +19,18 @@ function App() {
 
 				<div className="container">
 					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/register" element={<Register />} />
+						<Route
+							path="/"
+							element={auth ? <Home /> : <Navigate to="/login" />}
+						/>
+						<Route
+							path="/login"
+							element={!auth ? <Login /> : <Navigate to="/" />}
+						/>
+						<Route
+							path="/register"
+							element={!auth ? <Register /> : <Navigate to="/" />}
+						/>
 					</Routes>
 				</div>
 

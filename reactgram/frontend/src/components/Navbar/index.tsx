@@ -1,8 +1,22 @@
 import styles from "./Navbar.module.scss";
-import { Link, NavLink } from "react-router-dom";
-import { BsHouseDoorFill, BsSearch } from "react-icons/bs";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import {
+	BsFillCameraFill,
+	BsFillPersonFill,
+	BsHouseDoorFill,
+	BsSearch,
+} from "react-icons/bs";
+import { initialStateData } from "../../interfaces/initialStateData";
+
+// Hooks
+import { useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+	const { auth } = useAuth();
+	const { user } = useSelector((state: initialStateData) => state.auth);
+
 	return (
 		<nav className={styles.nav}>
 			<Link to="/">ReactGram</Link>
@@ -13,19 +27,43 @@ const Navbar = () => {
 			</form>
 
 			<ul className={styles["nav-links"]}>
-				<li>
-					<NavLink to="/">
-						<BsHouseDoorFill />
-					</NavLink>
-				</li>
+				{auth ? (
+					<>
+						<li>
+							<NavLink to="/">
+								<BsHouseDoorFill />
+							</NavLink>
+						</li>
 
-				<li>
-					<NavLink to="/login">Entrar</NavLink>
-				</li>
+						{user && (
+							<li>
+								<NavLink to={`/users/${user._id}`}>
+									<BsFillCameraFill />
+								</NavLink>
+							</li>
+						)}
 
-				<li>
-					<NavLink to="/register">Cadastrar</NavLink>
-				</li>
+						<li>
+							<NavLink to="/profile">
+								<BsFillPersonFill />
+							</NavLink>
+						</li>
+
+						<li>
+							<span>Sair</span>
+						</li>
+					</>
+				) : (
+					<>
+						<li>
+							<NavLink to="/login">Entrar</NavLink>
+						</li>
+
+						<li>
+							<NavLink to="/register">Cadastrar</NavLink>
+						</li>
+					</>
+				)}
 			</ul>
 		</nav>
 	);

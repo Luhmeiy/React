@@ -1,12 +1,29 @@
-import { FormEvent, useState } from "react";
 import "./Auth.scss";
+import { initialStateData } from "../../interfaces/initialStateData";
+import { register, reset } from "../../slices/authSlice";
+import { Message } from "../../components";
+
+// React
+import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+// Redux
+import { useDispatch, useSelector } from "react-redux";
+import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+
+type AppDispatch = ThunkDispatch<initialStateData, {}, AnyAction>;
 
 const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+
+	const dispatch: AppDispatch = useDispatch();
+
+	const { loading, error } = useSelector(
+		(state: initialStateData) => state.auth
+	);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -19,7 +36,14 @@ const Register = () => {
 		};
 
 		console.log(user);
+
+		dispatch(register(user));
 	};
+
+	// Clean all auth states
+	useEffect(() => {
+		dispatch(reset());
+	}, [dispatch]);
 
 	return (
 		<div className="register">
@@ -57,7 +81,9 @@ const Register = () => {
 					value={confirmPassword}
 				/>
 
-				<input type="submit" value="Cadastrar" />
+				{loading && <input type="submit" value="Aguarde..." disabled />}
+				{!loading && <input type="submit" value="Cadastrar" />}
+				{error && <Message msg={error} type="error" />}
 			</form>
 
 			<p>
