@@ -9,9 +9,7 @@ import { Link } from "react-router-dom";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
-
-type AppDispatch = ThunkDispatch<initialStateData, {}, AnyAction>;
+import { AppDispatch } from "../../types/AppDispatch";
 
 const Register = () => {
 	const [name, setName] = useState("");

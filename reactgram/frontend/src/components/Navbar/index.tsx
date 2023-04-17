@@ -13,9 +13,24 @@ import { useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 
+// Redux
+import { logout, reset } from "../../slices/authSlice";
+import { AppDispatch } from "../../types/AppDispatch";
+
 const Navbar = () => {
 	const { auth } = useAuth();
 	const { user } = useSelector((state: initialStateData) => state.auth);
+
+	const navigate = useNavigate();
+
+	const dispatch: AppDispatch = useDispatch();
+
+	const handleLogout = () => {
+		dispatch(logout());
+		dispatch(reset());
+
+		navigate("/login");
+	};
 
 	return (
 		<nav className={styles.nav}>
@@ -50,7 +65,7 @@ const Navbar = () => {
 						</li>
 
 						<li>
-							<span>Sair</span>
+							<span onClick={handleLogout}>Sair</span>
 						</li>
 					</>
 				) : (
