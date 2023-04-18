@@ -1,14 +1,13 @@
 import "./Auth.scss";
-import { initialStateData } from "../../interfaces/initialStateData";
 import { register, reset } from "../../slices/authSlice";
-import { Message } from "../../components";
+import { SubmitButton } from "../../components";
 
 // React
 import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../types/AppDispatch";
 
 const Register = () => {
@@ -18,10 +17,6 @@ const Register = () => {
 	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const dispatch: AppDispatch = useDispatch();
-
-	const { loading, error } = useSelector(
-		(state: initialStateData) => state.auth
-	);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -77,9 +72,7 @@ const Register = () => {
 					value={confirmPassword}
 				/>
 
-				{loading && <input type="submit" value="Aguarde..." disabled />}
-				{!loading && <input type="submit" value="Cadastrar" />}
-				{error && <Message msg={error} type="error" />}
+				<SubmitButton action="Cadastrar" />
 			</form>
 
 			<p>

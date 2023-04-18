@@ -14,7 +14,7 @@ export const requestConfig = (
 	method: any,
 	data: any,
 	token = null,
-	image = null
+	image: boolean | null = null
 ) => {
 	let config: configData;
 

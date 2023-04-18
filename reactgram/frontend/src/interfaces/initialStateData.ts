@@ -4,4 +4,5 @@ export interface initialStateData {
 	success: boolean;
 	loading: boolean;
 	auth?: any;
+	message?: string | null;
 }

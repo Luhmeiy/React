@@ -2,14 +2,13 @@ import "./Auth.scss";
 
 // Components
 import { Link } from "react-router-dom";
-import { Message } from "../../components";
+import { SubmitButton } from "../../components";
 
 // Hooks
 import { FormEvent, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // Interface / Types
-import { initialStateData } from "../../interfaces/initialStateData";
 import { AppDispatch } from "../../types/AppDispatch";
 
 // Redux
@@ -20,10 +19,6 @@ const Login = () => {
 	const [password, setPassword] = useState("");
 
 	const dispatch: AppDispatch = useDispatch();
-
-	const { loading, error } = useSelector(
-		(state: initialStateData) => state.auth
-	);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -59,9 +54,7 @@ const Login = () => {
 					value={password}
 				/>
 
-				{loading && <input type="submit" value="Aguarde..." disabled />}
-				{!loading && <input type="submit" value="Entrar" />}
-				{error && <Message msg={error} type="error" />}
+				<SubmitButton action="Entrar" />
 			</form>
 
 			<p>
