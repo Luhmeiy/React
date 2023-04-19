@@ -76,10 +76,10 @@ const EditProfile = () => {
 		const formData = new FormData();
 
 		const userFormData = Object.keys(userData).forEach((key) =>
-			formData.append(key, String(userData[key as keyof IUserData]))
+			formData.append(key, userData[key as keyof IUserData]!)
 		);
 
-		formData.append("user", String(userFormData));
+		formData.append("user", userFormData!);
 
 		await dispatch(updateProfile(formData));
 

@@ -12,6 +12,9 @@ const SubmitButton = ({
 	const { loading, error } = useSelector(
 		(state: initialStateData) => state.auth
 	);
+	const { message: messagePhoto, error: errorPhoto } = useSelector(
+		(state: initialStateData) => state.photo!
+	);
 
 	return (
 		<>
@@ -19,6 +22,8 @@ const SubmitButton = ({
 			{!loading && <input type="submit" value={action} />}
 			{error && <Message msg={error} type="error" />}
 			{message && <Message msg={message} type="success" />}
+			{errorPhoto && <Message msg={errorPhoto} type="error" />}
+			{messagePhoto && <Message msg={messagePhoto} type="success" />}
 		</>
 	);
 };

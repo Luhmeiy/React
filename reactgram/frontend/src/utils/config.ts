@@ -12,7 +12,7 @@ interface configData {
 
 export const requestConfig = (
 	method: any,
-	data: any,
+	data?: any,
 	token = null,
 	image: boolean | null = null
 ) => {
@@ -20,18 +20,18 @@ export const requestConfig = (
 
 	if (image) {
 		config = {
-			method,
+			method: method,
 			body: data,
 			headers: {},
 		};
 	} else if (method === "DELETE" || data === null) {
 		config = {
-			method,
+			method: method,
 			headers: {},
 		};
 	} else {
 		config = {
-			method,
+			method: method,
 			body: JSON.stringify(data),
 			headers: {
 				"Content-Type": "application/json",

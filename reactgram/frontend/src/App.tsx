@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { useAuth } from "./hooks/useAuth";
 import { Footer, Navbar } from "./components";
-import { EditProfile, Home, Login, Register } from "./pages";
+import { EditProfile, Home, Login, Profile, Register } from "./pages";
 
 function App() {
 	const { auth, loading } = useAuth();
@@ -31,6 +31,12 @@ function App() {
 								) : (
 									<Navigate to="/login" />
 								)
+							}
+						/>
+						<Route
+							path="/users/:id"
+							element={
+								auth ? <Profile /> : <Navigate to="/login" />
 							}
 						/>
 						<Route
