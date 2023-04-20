@@ -1,3 +1,11 @@
+interface photoData {
+	_id?: string;
+	photos?: [];
+	loading?: boolean;
+	message?: string;
+	error?: string;
+}
+
 export interface initialStateData {
 	user?: any;
 	error: boolean | Error | null;
@@ -5,11 +13,6 @@ export interface initialStateData {
 	loading: boolean;
 	auth?: any;
 	message?: string | null;
-	photos?: {}[];
-	photo?: {
-		photos?: [];
-		loading?: boolean;
-		message?: string;
-		error?: string;
-	};
+	photos?: photoData[];
+	photo?: photoData;
 }
