@@ -5,6 +5,10 @@ export interface photoData {
 	loading?: boolean;
 	message?: string;
 	error?: string;
+	image?: string;
+	userId?: string;
+	userName?: string;
+	photo?: any;
 }
 
 export interface initialStateData {

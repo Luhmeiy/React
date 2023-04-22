@@ -1,0 +1,36 @@
+.photo {
+	margin: 0 auto;
+	margin-top: 2em;
+	text-align: center;
+	width: 50%;
+
+	& img {
+		width: 100%;
+	}
+
+	& .author {
+		display: flex;
+		font-weight: bold;
+
+		& img {
+			border-radius: 50%;
+			height: 50px;
+			margin-right: 1em;
+			width: 50px;
+		}
+	}
+}
+
+.message-container {
+	margin: 1em 0;
+}
+
+.comments {
+	text-align: left;
+
+	& form {
+		border-bottom: 1px solid #363636;
+		margin-bottom: 2em;
+		padding-bottom: 1em;
+	}
+}
