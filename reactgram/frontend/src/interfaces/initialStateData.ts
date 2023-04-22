@@ -1,5 +1,6 @@
-interface photoData {
+export interface photoData {
 	_id?: string;
+	title?: string;
 	photos?: [];
 	loading?: boolean;
 	message?: string;
