@@ -75,12 +75,28 @@ const getPhoto = async (id: string, token: any) => {
 	}
 };
 
+// Like a photo
+const like = async (id: string, token: any) => {
+	const config = requestConfig("PUT", null, token);
+
+	try {
+		const res = await fetch(`${api}/photos/like/${id}`, config)
+			.then((res) => res.json())
+			.catch((err) => err);
+
+		return res;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const photoService = {
 	publichPhoto,
 	getUserPhotos,
 	deletePhoto,
 	updatePhoto,
 	getPhoto,
+	like,
 };
 
 export default photoService;
