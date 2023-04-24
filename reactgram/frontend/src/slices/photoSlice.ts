@@ -141,6 +141,18 @@ export const comment = createAsyncThunk(
 	}
 );
 
+// Get all photos
+export const getPhotos = createAsyncThunk(
+	"photo/getall",
+	async (_, thunkAPI) => {
+		const token = thunkAPI.getState().auth.user.token;
+
+		const data = await photoService.getPhotos(token);
+
+		return data;
+	}
+);
+
 // Funções
 export const photoSlice = createSlice({
 	name: "photo",
@@ -275,6 +287,17 @@ export const photoSlice = createSlice({
 			.addCase(comment.rejected, (state, action) => {
 				state.loading = false;
 				state.error = action.payload as Error;
+			})
+			// Get all photos
+			.addCase(getPhotos.pending, (state) => {
+				state.loading = true;
+				state.error = false;
+			})
+			.addCase(getPhotos.fulfilled, (state, action) => {
+				state.loading = false;
+				state.success = true;
+				state.error = null;
+				state.photos = action.payload!;
 			});
 	},
 });
