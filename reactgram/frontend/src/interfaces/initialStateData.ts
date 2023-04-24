@@ -10,6 +10,7 @@ export interface photoData {
 	userName?: string;
 	photo?: any;
 	likes?: any[];
+	comments?: string[];
 }
 
 export interface initialStateData {

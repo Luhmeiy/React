@@ -90,6 +90,21 @@ const like = async (id: string, token: any) => {
 	}
 };
 
+// Add comment to a photo
+const comment = async (data: any, id: string, token: any) => {
+	const config = requestConfig("PUT", data, token);
+
+	try {
+		const res = await fetch(`${api}/photos/comment/${id}`, config)
+			.then((res) => res.json())
+			.catch((err) => err);
+
+		return res;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 const photoService = {
 	publichPhoto,
 	getUserPhotos,
@@ -97,6 +112,7 @@ const photoService = {
 	updatePhoto,
 	getPhoto,
 	like,
+	comment,
 };
 
 export default photoService;
