@@ -9,7 +9,7 @@ import {
 import { initialStateData } from "../../interfaces/initialStateData";
 
 // Hooks
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,6 +20,8 @@ import { AppDispatch } from "../../types/AppDispatch";
 const Navbar = () => {
 	const { auth } = useAuth();
 	const { user } = useSelector((state: initialStateData) => state.auth);
+
+	const [query, setQuery] = useState("");
 
 	const navigate = useNavigate();
 
@@ -32,13 +34,25 @@ const Navbar = () => {
 		navigate("/login");
 	};
 
+	const handleSearch = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		if (query) {
+			return navigate(`/search?q=${query}`);
+		}
+	};
+
 	return (
 		<nav className={styles.nav}>
 			<Link to="/">ReactGram</Link>
 
-			<form className={styles["search-form"]}>
+			<form className={styles["search-form"]} onSubmit={handleSearch}>
 				<BsSearch />
-				<input type="text" placeholder="Pesquisar" />
+				<input
+					type="text"
+					placeholder="Pesquisar"
+					onChange={(e) => setQuery(e.target.value)}
+				/>
 			</form>
 
 			<ul className={styles["nav-links"]}>
