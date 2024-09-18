@@ -18,10 +18,14 @@ Developed during [Criando uma interface de autenticação](https://www.youtube.c
 
 -   google-auth
 
-Developed during [Styled Components Crash Course & Project](https://www.youtube.com/watch?v=02zO0hZmwnw) tutorial by [Traversy Media](https://www.youtube.com/@TraversyMedia):
+Developed during [Styled Components Crash Course & Project](https://www.youtube.com/watch?v=02zO0hZmwnw) by [Traversy Media](https://www.youtube.com/@TraversyMedia):
 
 -   hubble
 
 Developed during [Notificações push na Web e Mobile](https://www.youtube.com/watch?v=nNvxERiVb_s) tutorial by [Rocketseat](https://www.youtube.com/@rocketseat):
 
 -   react-react-native-notifications
+
+Developed during [Redux para Completos Iniciantes | Guia Completo](https://www.youtube.com/watch?v=mXI2-gjIZ40) by [Felipe Rocha • dicasparadevs](https://www.youtube.com/@dicasparadevs):
+
+-   react-redux
