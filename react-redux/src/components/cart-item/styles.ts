@@ -10,7 +10,7 @@ export const CartItemContainer = styled.div`
 	}
 `;
 
-export const CartItemImage = styled.div`
+export const CartItemImage = styled.div<{ imageUrl: string }>`
 	background-image: ${(props) => `url('${props.imageUrl}')`};
 	height: 250px;
 	width: 170px;

@@ -1,12 +1,18 @@
 import * as Styles from "./styles";
 
-const Cart = ({ isVisible, setIsVisible }) => {
-  	const handleEscapeAreaClick = () => setIsVisible(false);
+const Cart = ({
+	isVisible,
+	setIsVisible,
+}: {
+	isVisible: boolean;
+	setIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+	const handleEscapeAreaClick = () => setIsVisible(false);
 
 	return (
 		<Styles.CartContainer isVisible={isVisible}>
 			<Styles.CartEscapeArea onClick={handleEscapeAreaClick} />
-				<Styles.CartContent>
+			<Styles.CartContent>
 				<Styles.CartTitle>Seu Carrinho</Styles.CartTitle>
 			</Styles.CartContent>
 		</Styles.CartContainer>
