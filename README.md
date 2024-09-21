@@ -29,3 +29,4 @@ Developed during [Notificações push na Web e Mobile](https://www.youtube.com/w
 Developed during [Redux para Completos Iniciantes | Guia Completo](https://www.youtube.com/watch?v=mXI2-gjIZ40) by [Felipe Rocha • dicasparadevs](https://www.youtube.com/@dicasparadevs):
 
 -   react-redux
+-   react-redux-toolkit
