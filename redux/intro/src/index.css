@@ -1,0 +1,40 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: grid;
+	font-size: 5rem;
+	min-height: 100vh;
+	place-content: center;
+}
+
+input,
+button {
+	font: inherit;
+	padding: 0.5rem;
+}
+
+section {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+input {
+	max-width: 2.5em;
+	text-align: center;
+}
+
+button {
+	font-size: 2rem;
+	margin: 0.5em 0 0.5em 0.5em;
+	min-width: 2em;
+}
+
+button:first-child {
+	margin-left: 0;
+}
