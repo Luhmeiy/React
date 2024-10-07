@@ -33,5 +33,4 @@ Developed during [Redux para Completos Iniciantes | Guia Completo](https://www.y
 
 Developed during [React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial](https://www.youtube.com/watch?v=NqzdVN2tyvQ) by [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode):
 
--   react-redux
--   react-redux-toolkit
+-   redux
