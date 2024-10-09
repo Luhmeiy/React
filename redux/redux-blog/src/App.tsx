@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 
-import AddPostForm from "./components/AddPostForm";
 import Layout from "./components/Layout";
-import PostsList from "./components/PostsList";
-import SinglePostPage from "./components/SinglePostPage";
-import EditPostForm from "./components/EditPostForm";
+import AddPostForm from "./pages/AddPostForm";
+import PostsList from "./pages/PostsList";
+import SinglePostPage from "./pages/SinglePostPage";
+import EditPostForm from "./pages/EditPostForm";
+import UsersList from "./pages/UsersList";
+import UserPage from "./pages/UserPage";
+import Error404 from "./pages/Error404";
 
 function App() {
 	return (
@@ -17,6 +20,13 @@ function App() {
 					<Route path=":postId" element={<SinglePostPage />} />
 					<Route path="edit/:postId" element={<EditPostForm />} />
 				</Route>
+
+				<Route path="user">
+					<Route index element={<UsersList />} />
+					<Route path=":userId" element={<UserPage />} />
+				</Route>
+
+				<Route path="*" element={<Error404 />} />
 			</Route>
 		</Routes>
 	);
