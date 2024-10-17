@@ -34,3 +34,7 @@ Developed during [Redux para Completos Iniciantes | Guia Completo](https://www.y
 Developed during [React Redux Full Course for Beginners | Redux Toolkit Complete Tutorial](https://www.youtube.com/watch?v=NqzdVN2tyvQ) by [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode):
 
 -   redux
+
+Developed during [React Redux Login Authentication Flow with JWT Access, Refresh Tokens, Cookies](https://www.youtube.com/watch?v=-JJFQ9bkUbo) by [Dave Gray](https://www.youtube.com/@DaveGrayTeachesCode):
+
+-   redux-auth
